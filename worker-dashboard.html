@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORKSURE - Worker Dashboard</title>
+    <link rel="stylesheet" href="worker-dasboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">✱</span>
+                <span class="logo-text">WORKSURE</span>
+            </div>
+            <nav class="nav">
+                <a href="worker-dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="worker-profile.html" class="nav-link">My Profile</a>
+                <a href="worker-jobs.html" class="nav-link">My Jobs</a>
+                <a href="worker-earnings.html" class="nav-link">Earnings</a>
+            </nav>
+            <div class="header-right">
+                <div class="user-menu">
+                    <div class="user-avatar" id="userAvatar">W</div>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <div class="dropdown-item" id="viewProfile">View Profile</div>
+                        <div class="dropdown-item" id="settingsItem">Settings</div>
+                        <div class="dropdown-item" id="logoutItem">Logout</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1 class="welcome-title">Welcome back, <span id="workerName">Worker</span>!</h1>
+                <p class="welcome-subtitle">Manage your profile, view job requests, and grow your business</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💼</div>
+                    <div class="stat-info">
+                        <h3 class="stat-value" id="jobsCompleted">24</h3>
+                        <p class="stat-label">Jobs Completed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-info">
+                        <h3 class="stat-value" id="averageRating">4.8</h3>
+                        <p class="stat-label">Average Rating</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <h3 class="stat-value" id="totalEarnings">₹45,680</h3>
+                        <p class="stat-label">Total Earnings</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div class="stat-info">
+                        <h3 class="stat-value" id="pendingRequests">3</h3>
+                        <p class="stat-label">Pending Requests</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="section-header">
+                <h2 class="section-title">Quick Actions</h2>
+            </div>
+            <div class="actions-grid">
+                <button class="action-card" id="completeProfileBtn">
+                    <div class="action-icon">👤</div>
+                    <h3 class="action-title">Complete Profile</h3>
+                    <p class="action-desc">Add your details to get more jobs</p>
+                </button>
+                <button class="action-card" id="viewJobsBtn">
+                    <div class="action-icon">📨</div>
+                    <h3 class="action-title">View My Jobs</h3>
+                    <p class="action-desc">Check your current and past jobs</p>
+                </button>
+                <button class="action-card" id="updateAvailabilityBtn">
+                    <div class="action-icon">🕒</div>
+                    <h3 class="action-title">Update Availability</h3>
+                    <p class="action-desc">Manage your work schedule</p>
+                </button>
+            </div>
+
+            <!-- Recent Job Requests -->
+            <div class="section-header">
+                <h2 class="section-title">Recent Job Requests</h2>
+            </div>
+            <div class="requests-list" id="requestsList">
+                <!-- Job requests will be loaded here dynamically -->
+            </div>
+
+            <!-- No Requests Message -->
+            <div class="no-requests-message" id="noRequestsMessage" style="display: none;">
+                <div class="empty-state">
+                    <div class="empty-icon">📭</div>
+                    <h3>No Job Requests Yet</h3>
+                    <p>Complete your profile to start receiving job requests from users.</p>
+                    <button class="btn-primary" onclick="window.location.href='worker-profile.html'">Complete Profile</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="worker-dashboard.js"></script>
+</body>
+</html>

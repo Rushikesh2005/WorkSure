@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORKSURE - Select Profile</title>
+    <link rel="stylesheet" href="role-selection.css">
+</head>
+<body>
+    <div class="role-container">
+        <div class="logo-section">
+            <span class="logo-icon">✱</span>
+            <div class="logo-text">WORKSURE</div>
+        </div>
+
+        <div class="roles-grid">
+            <div class="role-card" onclick="selectRole('user')">
+                <div class="role-icon">👤</div>
+                <h2 class="role-title">Continue as User</h2>
+                <p class="role-description">
+                    Access your personalized dashboard, manage subscriptions, and explore tailored content. Dive into a seamless experience designed just for you.
+                </p>
+                <button class="btn-select">Select User Profile</button>
+            </div>
+
+            <div class="role-card" onclick="selectRole('worker')">
+                <div class="role-icon">📦</div>
+                <h2 class="role-title">Continue as Worker</h2>
+                <p class="role-description">
+                    Manage your tasks, track progress, and collaborate with your team. Access powerful tools and resources to streamline your workflow.
+                </p>
+                <button class="btn-select">Select Worker Profile</button>
+            </div>
+        </div>
+
+        <div class="logout-link">
+            <a href="#" id="logoutLink">Logout</a>
+        </div>
+    </div>
+
+    <script src="role-selection.js"></script>
+</body>
+</html>

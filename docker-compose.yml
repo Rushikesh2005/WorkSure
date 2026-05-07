@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # MySQL Database Service
+  db:
+    image: mysql:8.0
+    container_name: worksure_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpassword}
+      MYSQL_DATABASE: ${DB_NAME:-worksure_db}
+      MYSQL_USER: ${DB_USER:-worksure_user}
+      MYSQL_PASSWORD: ${DB_PASS:-worksure_pass}
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database2.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - worksure_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+      interval: 10s
+
+  # PHP/Apache Web Service
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: worksure_web
+    ports:
+      - "${WEB_PORT:-80}:80"
+    volumes:
+      - .:/var/www/html
+      - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER:-worksure_user}
+      DB_PASS: ${DB_PASS:-worksure_pass}
+      DB_NAME: ${DB_NAME:-worksure_db}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - worksure_network
+    restart: unless-stopped
+
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  worksure_network:
+    driver: bridge
