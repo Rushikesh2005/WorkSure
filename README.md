@@ -419,7 +419,7 @@ For issues or questions:
 
 ## 👥 Contributors
 
-Sankait Hangloo - Designing
-Mukesh Jatale - Frontend
-Rushikesh Shinde - Database
-Ujwal Thakare - Documentation
+Sankait Hangloo , 
+Mukesh Jatale , 
+Rushikesh Shinde , 
+Ujwal Thakare
